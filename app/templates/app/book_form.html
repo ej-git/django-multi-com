@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% block title %}{{ company.title }}{% endblock %}
+{% block content %}
+<div class="container">
+
+    <h1>{{ company.company_name }} - {{ company.store_name }}</h1>
+    <img src="{{ company.thumbnail.url }}">
+    <p>{{ company.message }}</p>
+
+    <hr>
+
+    <h2>予約一覧</h2>
+    {% for book in book_list %}
+        <p>{{ book.date }}</p>
+    {% endfor %}
+    
+    <hr>
+
+    <h2>予約登録</h2>    
+    <form action="" method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">予約登録</button>
+    </form>
+
+</div>
+{% endblock %}

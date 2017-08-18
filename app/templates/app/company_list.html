@@ -1,0 +1,9 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<p><a href="{% url 'app:company_create' %}">登録</a></p>
+<h1>登録企業一覧</h1>
+<hr>
+{% for company in company_list %}
+    <p><a href="{% url 'app:company_book' company.pk %}">{{ company.company_name }} - {{ company.store_name }}</a></p>
+{% endfor %}
+{% endblock %}
